@@ -110,18 +110,6 @@
         let totalPoints = 0;
         const maxPoints = 20; // Maximum points you can achieve
 
-        // Load saved checkbox states from local storage
-        function loadCheckboxStates() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                const isChecked = localStorage.getItem(checkbox.id) === 'true';
-                checkbox.checked = isChecked;
-                if (isChecked) {
-                    toggleTask(checkbox, parseInt(checkbox.dataset.points));
-                }
-            });
-        }
-
         function toggleTask(checkbox, points) {
             const listItem = checkbox.parentNode; // Get the parent <li> element
             if (checkbox.checked) {
