@@ -112,26 +112,14 @@
 
         // Load saved checkbox states from local storage
         function loadCheckboxStates() {
-            for (let i = 1; i <= 2; i++) {
-                const easyChecked = localStorage.getItem(`easy${i}`) === 'true';
-                document.getElementById(`easy${i}`).checked = easyChecked;
-                if (easyChecked) toggleTask(document.getElementById(`easy${i}`), 1);
-            }
-            for (let i = 1; i <= 2; i++) {
-                const mediumChecked = localStorage.getItem(`medium${i}`) === 'true';
-                document.getElementById(`medium${i}`).checked = mediumChecked;
-                if (mediumChecked) toggleTask(document.getElementById(`medium${i}`), 2);
-            }
-            for (let i = 1; i <= 2; i++) {
-                const hardChecked = localStorage.getItem(`hard${i}`) === 'true';
-                document.getElementById(`hard${i}`).checked = hardChecked;
-                if (hardChecked) toggleTask(document.getElementById(`hard${i}`), 3);
-            }
-            for (let i = 1; i <= 2; i++) {
-                const expertChecked = localStorage.getItem(`expert${i}`) === 'true';
-                document.getElementById(`expert${i}`).checked = expertChecked;
-                if (expertChecked) toggleTask(document.getElementById(`expert${i}`), 4);
-            }
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                const isChecked = localStorage.getItem(checkbox.id) === 'true';
+                checkbox.checked = isChecked;
+                if (isChecked) {
+                    toggleTask(checkbox, parseInt(checkbox.dataset.points));
+                }
+            });
         }
 
         function toggleTask(checkbox, points) {
