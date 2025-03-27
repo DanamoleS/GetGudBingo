@@ -6,7 +6,7 @@
     <title>Get Gud Bingo</title>
     <style>
         body {
-            background-color: tan;
+			background-color: tan;
             font-family: Arial, sans-serif;
             margin: 20px;
         }
@@ -64,40 +64,40 @@
     <h2 style="color: green;">Easy</h2>
     <ul id="easyList">
         <li>
-            <input type="checkbox" id="easy1" onclick="toggleTask(this, 1)"> Task 1: Simple Research
+            <input type="checkbox" onclick="toggleTask(this, 1)"> Task 1: Simple Research
         </li>
         <li>
-            <input type="checkbox" id="easy2" onclick="toggleTask(this, 1)"> Task 2: Basic Reading
+            <input type="checkbox" onclick="toggleTask(this, 1)"> Task 2: Basic Reading
         </li>
     </ul>
 
     <h2 style="color: yellow;">Medium</h2>
     <ul id="mediumList">
         <li>
-            <input type="checkbox" id="medium1" onclick="toggleTask(this, 2)"> Task 1: Create a Draft
+            <input type="checkbox" onclick="toggleTask(this, 2)"> Task 1: Create a Draft
         </li>
         <li>
-            <input type="checkbox" id="medium2" onclick="toggleTask(this, 2)"> Task 2: Moderate Design Work
+            <input type="checkbox" onclick="toggleTask(this, 2)"> Task 2: Moderate Design Work
         </li>
     </ul>
 
     <h2 style="color: red;">Hard</h2>
     <ul id="hardList">
         <li>
-            <input type="checkbox" id="hard1" onclick="toggleTask(this, 3)"> Task 1: Complex Coding
+            <input type="checkbox" onclick="toggleTask(this, 3)"> Task 1: Complex Coding
         </li>
         <li>
-            <input type="checkbox" id="hard2" onclick="toggleTask(this, 3)"> Task 2: In-depth Analysis
+            <input type="checkbox" onclick="toggleTask(this, 3)"> Task 2: In-depth Analysis
         </li>
     </ul>
 
     <h2 style="color: purple;">Expert</h2>
     <ul id="expertList">
         <li>
-            <input type="checkbox" id="expert1" onclick="toggleTask(this, 4)"> Task 1: Advanced Research
+            <input type="checkbox" onclick="toggleTask(this, 4)"> Task 1: Advanced Research
         </li>
         <li>
-            <input type="checkbox" id="expert2" onclick="toggleTask(this, 4)"> Task 2: High-level Project Management
+            <input type="checkbox" onclick="toggleTask(this, 4)"> Task 2: High-level Project Management
         </li>
     </ul>
 
@@ -115,11 +115,9 @@
             if (checkbox.checked) {
                 listItem.classList.add('completed'); // Add class to cross out
                 totalPoints += points; // Add points based on difficulty
-                localStorage.setItem(checkbox.id, 'true'); // Save checked state
             } else {
                 listItem.classList.remove('completed'); // Remove class to undo
                 totalPoints -= points; // Subtract points if unchecked
-                localStorage.setItem(checkbox.id, 'false'); // Save unchecked state
             }
             updateProgress();
         }
@@ -133,10 +131,8 @@
             pointsDisplay.innerText = totalPoints + ' Points'; // Update points display
             pointsDisplayText.innerText = totalPoints; // Update total points display
         }
-
-        // Call loadCheckboxStates on page load
-        window.onload = loadCheckboxStates;
     </script>
 
 </body>
+</html>
 </html>
