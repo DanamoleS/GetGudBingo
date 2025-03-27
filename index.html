@@ -265,32 +265,30 @@
         <div id="progress"></div>
     </div>
 
-    <script>
-        let totalPoints = 0;
-        const maxPoints = 146; // Maximum points you can achieve
+<script>
+    let totalPoints = 0;
+    const maxPoints = 146; // Maximum points you can achieve
 
-        function toggleTask(checkbox, points) {
-            const listItem = checkbox.parentNode; // Get the parent <li> element
-            if (checkbox.checked) {
-                listItem.classList.add('completed'); // Add class to cross out
-                totalPoints += points; // Add points based on difficulty
-            } else {
-                listItem.classList.remove('completed'); // Remove class to undo
-                totalPoints -= points; // Subtract points if unchecked
-            }
-            updateProgress();
+    function toggleTask(checkbox, points) {
+        const listItem = checkbox.parentNode; // Get the parent <li> element
+        if (checkbox.checked) {
+            listItem.classList.add('completed'); // Add class to cross out
+            totalPoints += points; // Add points based on difficulty
+        } else {
+            listItem.classList.remove('completed'); // Remove class to undo
+            totalPoints -= points; // Subtract points if unchecked
         }
+        updateProgress();
+    }
 
-        function updateProgress() {
-            const progressBar = document.getElementById('progress');
-            const pointsDisplay = document.getElementById('points');
-            const pointsDisplayText = document.getElementById('pointsDisplay');
-            const percentage = (totalPoints / maxPoints) * 100; // Calculate percentage
-            progressBar.style.width = percentage + '%'; // Update the width of the bar
-            pointsDisplay.innerText = totalPoints + ' Points'; // Update points display
-            pointsDisplayText.innerText = totalPoints; // Update total points display
-        }
-    </script>
+    function updateProgress() {
+        const progressBar = document.getElementById('progress');
+        const pointsDisplayText = document.getElementById('pointsDisplay');
+        const percentage = (totalPoints / maxPoints) * 100; // Calculate percentage
+        progressBar.style.width = percentage + '%'; // Update the width of the bar
+        pointsDisplayText.innerText = totalPoints; // Update total points display
+    }
+</script>
 
 </body>
 </html>
