@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Gud Bingo</title>
+    <style>
+        body {
+			background-color: tan;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        ul {
+            list-style-type: none; /* Remove default bullets */
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        #completionBar {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative;
+        }
+        #progress {
+            height: 30px;
+            width: 0;
+            background-color: #4caf50;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+        #points {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            line-height: 30px; /* Center the text vertically */
+            color: white;
+            font-weight: bold;
+        }
+        #totalPoints {
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Get Gud Task Lists</h1>
+
+    <h2 style="color: green;">Easy</h2>
+    <ul id="easyList">
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 1)"> Task 1: Simple Research
+        </li>
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 1)"> Task 2: Basic Reading
+        </li>
+    </ul>
+
+    <h2 style="color: yellow;">Medium</h2>
+    <ul id="mediumList">
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 2)"> Task 1: Create a Draft
+        </li>
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 2)"> Task 2: Moderate Design Work
+        </li>
+    </ul>
+
+    <h2 style="color: red;">Hard</h2>
+    <ul id="hardList">
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 3)"> Task 1: Complex Coding
+        </li>
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 3)"> Task 2: In-depth Analysis
+        </li>
+    </ul>
+
+    <h2 style="color: purple;">Expert</h2>
+    <ul id="expertList">
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 4)"> Task 1: Advanced Research
+        </li>
+        <li>
+            <input type="checkbox" onclick="toggleTask(this, 4)"> Task 2: High-level Project Management
+        </li>
+    </ul>
+
+    <div id="totalPoints">Total Points: <span id="pointsDisplay">0</span></div>
+    <div id="completionBar">
+        <div id="progress"></div>
+    </div>
+
+    <script>
+        let totalPoints = 0;
+        const maxPoints = 20; // Maximum points you can achieve
+
+        function toggleTask(checkbox, points) {
+            const listItem = checkbox.parentNode; // Get the parent <li> element
+            if (checkbox.checked) {
+                listItem.classList.add('completed'); // Add class to cross out
+                totalPoints += points; // Add points based on difficulty
+            } else {
+                listItem.classList.remove('completed'); // Remove class to undo
+                totalPoints -= points; // Subtract points if unchecked
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progressBar = document.getElementById('progress');
+            const pointsDisplay = document.getElementById('points');
+            const pointsDisplayText = document.getElementById('pointsDisplay');
+            const percentage = (totalPoints / maxPoints) * 100; // Calculate percentage
+            progressBar.style.width = percentage + '%'; // Update the width of the bar
+            pointsDisplay.innerText = totalPoints + ' Points'; // Update points display
+            pointsDisplayText.innerText = totalPoints; // Update total points display
+        }
+    </script>
+
+</body>
+</html>
