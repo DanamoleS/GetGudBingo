@@ -67,6 +67,11 @@
         <option value="Dane">Dane</option>
         <option value="Taz">Taz</option>
     </select>
+	
+	    <div id="totalPoints">Total Points: <span id="pointsDisplay">0</span></div>
+    <div id="completionBar">
+        <div id="progress"></div>
+    </div>
 
     <h2 style="color: green;">Easy</h2>
     <ul id="easyList">
@@ -267,14 +272,9 @@
         </li>
     </ul>
 
-    <div id="totalPoints">Total Points: <span id="pointsDisplay">0</span></div>
-    <div id="completionBar">
-        <div id="progress"></div>
-    </div>
-
     <script>
         let totalPoints = 0;
-        const maxPoints = 20; // Maximum points you can achieve
+        const maxPoints = 146; // Maximum points you can achieve
 
         // Initialize profiles from localStorage or set default
         const profiles = JSON.parse(localStorage.getItem('profiles')) || {
